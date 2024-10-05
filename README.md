@@ -39,6 +39,6 @@ Ejemplo de respuesta JSON al crear el mensaje en el Broker con el enpoint push o
 #### Tareas pendientes
 1. El atributo mensaje debe permitir un formato Json para darle flexibilidad a los mensajes.
 2. Crear un filtro en el método GET y DELETE para el atributo "to" para poder obtener los mensajes que correspondan a 
-cada Consumer y flexibilidad al Broker para  
-3.  
-
+cada Consumer y flexibilidad al Broker para manejar Producers y Consumers de diferente necesidad
+3. Crear la clase State para ir cambiando los estados de los mensajes desde el Broker y que al crearse estén seteados 
+como AVAILABLE
