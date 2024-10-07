@@ -18,20 +18,20 @@ Luego parados en la raiz del proyecto ejecutamos:
 
 Ejemplo de los parámetros del body agregar mensajes a la cola
 
-| Parámetro   | Tipo de Dato  | Descripción                                                         |
-|:------------|:--------------|:--------------------------------------------------------------------|
-| message     | [string]      | Mensaje a envíar (Tarea pendiente n°1)                              |
-| to          | [string]      | Indica a que Consiumer corresponde el mensaje (Tarea pendiente n°2) |
-| state       | [string]      | Indica el estado del Mensaje (Tarea pendiente n°3)                  |
-| priority    | [string]      | Indica la prioridad del Mensaje                                     |
-| userId      | [string]      | Indica el ID del usuario (Producer) del mensaje                     |
-| contentType | [string]      | Indica el tipo de tato que contiene el mensaje                      |
-| expiryTime  | [int]         | Indica el tiempo de expiración del mensaje                          |
+| Parámetro   | Tipo de Dato  | Descripción                                                                                                         |
+|:------------|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| message     | [string]      | Mensaje a envíar (Request de ejemplo de API Mercado Pago con las " escapadas para poder guardas el JSON como string |
+| to          | [string]      | Indica a que Consiumer corresponde el mensaje (Tarea pendiente n°2)                                                 |
+| state       | [string]      | Indica el estado del Mensaje (Tarea pendiente n°3)                                                                  |
+| priority    | [string]      | Indica la prioridad del Mensaje                                                                                     |
+| userId      | [string]      | Indica el ID del usuario (Producer) del mensaje                                                                     |
+| contentType | [string]      | Indica el tipo de tato que contiene el mensaje                                                                      |
+| expiryTime  | [int]         | Indica el tiempo de expiración del mensaje                                                                          |
 
 Body en formato JSON
 ```json
     {
-        "message": "este es mi mensaje",
+        "message": "{\"transaction_amount\": 1000.50,\"installments\": 1,\"payment_method_id\": \"master\",\"issuer_id\": \"3\",\"token\": \"{{card_token_id}}\",\"external_reference\": \"PKJNWD1231\",\"notification_url\": \"https://www.yoursite.com/webhooks\",\"metadata\": {\"order_number\": \"order_PKJNWD1231\"},\"payer\": { \"first_name\": \"Juan\", \"last_name\": \"Perez\", \"email\": \"test_user_12345@testuser.com\", \"identification\": {\"type\": \"DNI\", \"number\": \"12123123\"},}",
         "to": "mp",
         "state": "creado",
         "priority": 1,
@@ -44,7 +44,7 @@ Body en formato JSON
 Ejemplo de respuesta JSON al crear el mensaje en el Broker con el enpoint push o al obtener un mensaje con el método pop 
 ```json
 {
-    "message": "este es mi mensaje",
+    "message": "{\"transaction_amount\": 1000.50,\"installments\": 1,\"payment_method_id\": \"master\",\"issuer_id\": \"3\",\"token\": \"{{card_token_id}}\",\"external_reference\": \"PKJNWD1231\",\"notification_url\": \"https://www.yoursite.com/webhooks\",\"metadata\": {\"order_number\": \"order_PKJNWD1231\"},\"payer\": { \"first_name\": \"Juan\", \"last_name\": \"Perez\", \"email\": \"test_user_12345@testuser.com\", \"identification\": {\"type\": \"DNI\", \"number\": \"12123123\"},}",
     "to": "mp",
     "state": "creado",
     "priority": 1,
@@ -56,9 +56,12 @@ Ejemplo de respuesta JSON al crear el mensaje en el Broker con el enpoint push o
     "expiryTime": "25"
 }
 ```
+
 #### Tareas pendientes
-1. El atributo mensaje debe permitir un formato Json para darle flexibilidad a los mensajes.
+1. El atributo mensaje debe permitir un formato Json para darle flexibilidad a los mensajes.(Listo)
 2. Crear un filtro en el método GET y DELETE para el atributo "to" para poder obtener los mensajes que correspondan a 
 cada Consumer y flexibilidad al Broker para manejar Producers y Consumers de diferente necesidad
 3. Crear la clase State para ir cambiando los estados de los mensajes desde el Broker y que al crearse estén seteados 
 como AVAILABLE
+
+
