@@ -18,15 +18,15 @@ Luego parados en la raiz del proyecto ejecutamos:
 
 Ejemplo de los parámetros del body agregar mensajes a la cola
 
-| Parámetro   | Tipo de Dato  | Descripción                                                                                                         |
-|:------------|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| message     | [string]      | Mensaje a envíar (Request de ejemplo de API Mercado Pago con las " escapadas para poder guardas el JSON como string |
-| to          | [string]      | Indica a que Consiumer corresponde el mensaje (Tarea pendiente n°2)                                                 |
-| state       | [string]      | Indica el estado del Mensaje (Tarea pendiente n°3)                                                                  |
-| priority    | [string]      | Indica la prioridad del Mensaje                                                                                     |
-| userId      | [string]      | Indica el ID del usuario (Producer) del mensaje                                                                     |
-| contentType | [string]      | Indica el tipo de tato que contiene el mensaje                                                                      |
-| expiryTime  | [int]         | Indica el tiempo de expiración del mensaje                                                                          |
+| Parámetro   | Tipo de Dato  | Descripción                                                                                                                            |
+|:------------|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|
+| message     | [string]      | Mensaje a envíar (Request de ejemplo de API Mercado Pago con las comillas dobles (\") escapadas para poder guardar el JSON como string |
+| to          | [string]      | Indica a que Consiumer corresponde el mensaje (Tarea pendiente n°2)                                                                    |
+| state       | [string]      | Indica el estado del Mensaje (Tarea pendiente n°3)                                                                                     |
+| priority    | [string]      | Indica la prioridad del Mensaje                                                                                                        |
+| userId      | [string]      | Indica el ID del usuario (Producer) del mensaje                                                                                        |
+| contentType | [string]      | Indica el tipo de tato que contiene el mensaje                                                                                         |
+| expiryTime  | [int]         | Indica el tiempo de expiración del mensaje                                                                                             |
 
 Body en formato JSON
 ```json
