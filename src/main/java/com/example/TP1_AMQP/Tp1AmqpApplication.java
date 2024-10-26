@@ -28,7 +28,7 @@ public class Tp1AmqpApplication {
 	}
 
 	@PostMapping("/push")
-	public ResponseEntity<Response> add(@RequestBody Node params) {
+	public ResponseEntity<Response> push(@RequestBody Node params) {
 		Node nodo1 = new Node(
 				params.getUserId(),
 				params.getContentType(),
@@ -42,7 +42,7 @@ public class Tp1AmqpApplication {
 				.body(new Response("Nuevo mensaje agregado", this.brokerService.addNode(nodo1)));
 	}
 
-	@DeleteMapping("/pop")
+	@GetMapping("/pop")
 	public ResponseEntity<Response> pop() {
 
 		if (this.brokerService.getQueue().isEmpty())
